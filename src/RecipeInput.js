@@ -18,7 +18,7 @@ class RecipeInput extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleNewIngredient = this.handleNewIngredient.bind(this);
-		this.handleChangeIngredient = this.handleChangeIngredient.bind(this);
+		this.handleChangeIng = this.handleChangeIng.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -31,10 +31,10 @@ class RecipeInput extends Component {
 		this.setState({ ingredients: [...ingredients, ''] });
 	}
 
-	handleChangeIngredient(e) {
+	handleChangeIng(e) {
 		const index = Number(e.target.name.split('-')[1]);
 		const ingredients = this.state.ingredients.map(
-			(ingredient, idx) => (idx === index ? e.target.value : ingredient)
+			(ing, i) => (i === index ? e.target.value : ing)
 		);
 		this.setState({ ingredients });
 	}
@@ -64,7 +64,7 @@ class RecipeInput extends Component {
 						size={45}
 						autoComplete="off"
 						placeholder=" Ingredient"
-						onChange={this.handleChangeIngredient}
+						onChange={this.handleChangeIng}
 					/>
 				</label>
 			</div>
