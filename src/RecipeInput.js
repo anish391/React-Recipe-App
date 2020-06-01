@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import './RecipeInput.css';
 
 class RecipeInput extends Component {
-	static defaultProps = {
-		onClose() {},
-		onSave() {}
-	};
-
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -18,7 +14,7 @@ class RecipeInput extends Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleNewIngredient = this.handleNewIngredient.bind(this);
-		this.handleChangeIng = this.handleChangeIng.bind(this);
+		this.handleChangeIngredient = this.handleChangeIngredient.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -31,7 +27,7 @@ class RecipeInput extends Component {
 		this.setState({ ingredients: [...ingredients, ''] });
 	}
 
-	handleChangeIng(e) {
+	handleChangeIngredient(e) {
 		const index = Number(e.target.name.split('-')[1]);
 		const ingredients = this.state.ingredients.map(
 			(ing, i) => (i === index ? e.target.value : ing)
@@ -63,8 +59,8 @@ class RecipeInput extends Component {
 						value={ing}
 						size={45}
 						autoComplete="off"
-						placeholder=" Ingredient"
-						onChange={this.handleChangeIng}
+						placeholder="Ingredient"
+						onChange={this.handleChangeIngredient}
 					/>
 				</label>
 			</div>
@@ -132,5 +128,10 @@ class RecipeInput extends Component {
 		);
 	}
 }
+
+RecipeInput.defaultProps = {
+	onClose() {},
+	onSave() {}
+};
 
 export default RecipeInput;

@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import './Recipe.css';
 
 class Recipe extends Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
-    instructions: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    onDelete: PropTypes.func.isRequired
-  }
   
   render() {
     const {title, img, instructions, id, onDelete} = this.props;
@@ -36,5 +28,14 @@ class Recipe extends Component {
     );
   }
 }
+
+Recipe.propTypes = {
+    title: PropTypes.string.isRequired,
+    ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+    instructions: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    onDelete: PropTypes.func.isRequired
+};
 
 export default Recipe;
