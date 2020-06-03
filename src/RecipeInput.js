@@ -11,7 +11,7 @@ class RecipeInput extends Component {
 			ingredients: [''],
 			img: ''
 		};
-
+		console.log(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleNewIngredient = this.handleNewIngredient.bind(this);
 		this.handleChangeIngredient = this.handleChangeIngredient.bind(this);
@@ -49,14 +49,14 @@ class RecipeInput extends Component {
 	render() {
 		const { title, instructions, img, ingredients } = this.state;
 		const { onClose } = this.props;
-		let inputs = ingredients.map((ing, i) => (
+		let inputs = ingredients.map((ingredient, i) => (
 			<div className="recipe-form-line" key={`ingredient-${i}`}>
 				<label>
 					{i + 1}.
 					<input
 						type="text"
 						name={`ingredient-${i}`}
-						value={ing}
+						value={ingredient}
 						size={45}
 						autoComplete="off"
 						placeholder="Ingredient"
